@@ -1,0 +1,2 @@
+include:
+  - ./skel/service/docker-compose.yml  # Application services
