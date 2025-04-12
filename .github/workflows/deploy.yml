@@ -14,11 +14,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # Set the OWNER_LC environment variable to the lowercase owner name
-    - name: Set lower case owner name
-      run: |
-        echo "OWNER_LC=${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]' >> $GITHUB_ENV
-
     # Log in to GitHub Container Registry
     - name: Log in to GitHub Container Registry
       uses: docker/login-action@v2
@@ -26,6 +21,18 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+
+    # Set the OWNER_LC environment variable to the lowercase owner name
+    - name: Set lower case owner name
+      run: |
+        echo "OWNER_LC=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
+    # Debug: Print the value of OWNER_LC
+    - name: Debug OWNER_LC
+      run: |
+        echo "OWNER_LC is: $OWNER_LC"
+      env:
+        OWNER_LC: ${{ env.OWNER_LC }}
 
     # Build the Docker image
     - name: Build Docker image
