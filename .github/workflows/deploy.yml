@@ -33,11 +33,11 @@ jobs:
         echo "OWNER_LC is: $OWNER_LC"
       env:
         OWNER_LC: ${{ env.OWNER_LC }}
-
+    
     # Build the Docker image
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ env.OWNER_LC }}/service_slim:latest .
+        docker build -t ghcr.io/${{ env.OWNER_LC }}/service_slim:latest ./service_slim
 
     # Push the Docker image to GHCR
     - name: Push Docker image
