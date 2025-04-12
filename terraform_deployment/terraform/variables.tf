@@ -45,17 +45,17 @@ variable "mongodb_database" {
   type        = string
 }
 
-#svariable "github_username" {
-#s  description = "The GitHub username"
-#s  type        = string
-#s}
+variable "github_username" {
+  description = "The GitHub username"
+  type        = string
+}
 
-#variable "github_email" {
-#  description = "The GitHub email"
-#  type        = string
-#}
-#
-#variable "github_token" {
-#  description = "The GitHub token"
-#  type        = string
-#}
+variable "github_email" {
+  description = "The GitHub email"
+  type        = string
+}
+
+variable "github_token" {
+  description = "The GitHub token"
+  type        = string
+}
