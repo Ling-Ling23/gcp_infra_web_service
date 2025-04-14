@@ -20,7 +20,7 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.GHCR_PAT }}
 
     # Set the OWNER_LC environment variable to the lowercase owner name
     - name: Set lower case owner name
@@ -37,7 +37,7 @@ jobs:
     # Build the Docker image
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ env.OWNER_LC }}/service_slim:latest ./service_slim
+        docker build -t ghcr.io/${{ env.OWNER_LC }}/service_slim:latest ./service_slims
 
     # Push the Docker image to GHCR
     - name: Push Docker image
