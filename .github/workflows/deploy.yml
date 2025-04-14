@@ -20,7 +20,7 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GHCR_PAT }}
+        password: ${{ secrets.GHCR_PAT_1 }}
 
     # Set the OWNER_LC environment variable to the lowercase owner name
     - name: Set lower case owner name
