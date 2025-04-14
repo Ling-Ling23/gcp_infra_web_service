@@ -42,7 +42,7 @@ jobs:
     # Build the Docker image
     - name: Build Docker image
       run: |
-        docker build -t ghcr.io/${{ env.OWNER_LC }}/service_slim:latest ./service_slims
+        docker build -t ghcr.io/${{ env.OWNER_LC }}/service_slim:latest ./service_slim
 
     # Push the Docker image to GHCR
     - name: Push Docker image
