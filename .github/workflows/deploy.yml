@@ -14,10 +14,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Debug login
-      run: |
-        echo "Using username: ${{ github.actor }}"
-        echo "Using token: ${{ secrets.GHCR_PAT_1 }}"
+    #- name: Debug login
+    #  run: |
+    #    echo "Using username: ${{ github.actor }}"
+    #    echo "Using token: ${{ secrets.GHCR_PAT_1 }}"
 
     # Log in to GitHub Container Registry
     - name: Log in to GitHub Container Registry
