@@ -32,7 +32,7 @@ jobs:
 
       # Step 4: Terraform Plan
       - name: Terraform Plan
-        run: terraform plan -out=tfplan
+        run: terraform plan
         working-directory: terraform_deployment/terraform
         env:
           TF_VAR_project_id: ${{ secrets.TF_VAR_PROJECT_ID }}
@@ -40,7 +40,7 @@ jobs:
 
       # Step 5: Terraform Apply
       - name: Terraform Apply
-        run: terraform apply -auto-approve tfplan
+        run: terraform apply -auto-approve
         working-directory: terraform_deployment/terraform
         env:
           TF_VAR_project_id: ${{ secrets.TF_VAR_PROJECT_ID }}
