@@ -66,7 +66,7 @@ jobs:
         run: terraform plan
         working-directory: terraform_deployment/terraform
         env:
-          TF_VAR_project_id: ${{ secrets.TF_VAR_PROJECT_ID }}
+          TF_VAR_project_id: $TF_VAR_project_id
           TF_VAR_google_credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
           TF_VAR_github_username: ${{ secrets.GH_USERNAME }}
           TF_VAR_github_email: ${{ secrets.GH_EMAIL }}
