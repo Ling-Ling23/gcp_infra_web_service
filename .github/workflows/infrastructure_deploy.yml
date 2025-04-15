@@ -11,8 +11,8 @@ name: Deploy Infrastructure
 on:
   workflow_dispatch: # Manual
 
-env:
-  TF_VAR_github_owner_lowercase: ling_ling23  # Hardcoded value
+#env:
+#  TF_VAR_github_owner_lowercase: ling_ling23  # Hardcoded value
 
 jobs:
   terraform:
@@ -47,11 +47,11 @@ jobs:
           google_credentials = <<CREDENTIALS
           ${{ secrets.GOOGLE_CREDENTIALS }}
           CREDENTIALS
-          github_owner_lowercase = "ling_ling23"
           mongodb_root_password = "${{ secrets.MONGO_ROOT_PASSWORD }}"
           mongodb_username = "${{ secrets.MONGO_USERNAME }}"
           mongodb_password = "${{ secrets.MONGO_PASSWORD }}"
           mongodb_database = "${{ secrets.MONGO_DATABASE }}"
+          github_owner_lowercase = "${{ secrets.GH_OWNER_LOWERCASE }}"
           github_username = "${{ secrets.GH_USERNAME }}"
           github_email = "${{ secrets.GH_EMAIL }}"
           github_token = "${{ secrets.GHCR_PAT_1 }}"

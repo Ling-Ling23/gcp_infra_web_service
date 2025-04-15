@@ -74,6 +74,10 @@ resource "kubernetes_deployment" "service_slim" {
       }
     }
   }
+  timeouts {
+    create = "3m"  # Timeout for creating the deployment
+    update = "3m"  # Timeout for updating the deployment
+  }  
 }
 
 resource "kubernetes_service" "service_slim" {
