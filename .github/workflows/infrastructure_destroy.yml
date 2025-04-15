@@ -1,0 +1,60 @@
+name: Destroy Infrastructure
+
+on:
+    workflow_dispatch: # Manual
+
+#env:
+#  TF_VAR_github_owner_lowercase: ling_ling23  # Hardcoded value
+
+jobs:
+  terraform:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.10.4  # Use your Terraform version
+          cli_config_credentials_token: ${{ secrets.TF_CLOUD_TOKEN }}
+
+      # Step 3: Initialize Terraform
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform_deployment/terraform
+
+      ## Step 4: Debug Environment Variables
+      #- name: Debug Environment Variables
+      #  run: env
+
+      - name: Create Terraform Variables File
+        run: |
+          cat <<EOF > terraform_deployment/terraform/variables.auto.tfvars
+          project_id = "${{ secrets.TF_VAR_PROJECT_ID }}"
+          google_credentials = <<CREDENTIALS
+          ${{ secrets.GOOGLE_CREDENTIALS }}
+          CREDENTIALS
+          github_owner_lowercase = "${{ secrets.GH_OWNER_LOWERCASE }}"
+          mongodb_root_password = "${{ secrets.MONGO_ROOT_PASSWORD }}"
+          mongodb_username = "${{ secrets.MONGO_USERNAME }}"
+          mongodb_password = "${{ secrets.MONGO_PASSWORD }}"
+          mongodb_database = "${{ secrets.MONGO_DATABASE }}"
+          github_username = "${{ secrets.GH_USERNAME }}"
+          github_email = "${{ secrets.GH_EMAIL }}"
+          github_token = "${{ secrets.GHCR_PAT_1 }}"
+          EOF
+
+      # Step 5: Terraform Plan -  -var-file=variables.auto.tfvars
+      - name: Terraform Plan
+        run: terraform plan
+        working-directory: terraform_deployment/terraform
+
+      # Step 6: Terraform Apply
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
+        working-directory: terraform_deployment/terraform

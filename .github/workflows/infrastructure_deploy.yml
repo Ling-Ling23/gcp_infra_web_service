@@ -1,12 +1,15 @@
 name: Deploy Infrastructure
 
+#on:
+#  push:
+#    branches:
+#      - main  # Trigger on pushes to the main branch
+#  pull_request:
+#    branches:
+#      - main  # Trigger on pull requests to the main branch
+
 on:
-  push:
-    branches:
-      - main  # Trigger on pushes to the main branch
-  pull_request:
-    branches:
-      - main  # Trigger on pull requests to the main branch
+  workflow_dispatch: # Manual
 
 env:
   TF_VAR_github_owner_lowercase: ling_ling23  # Hardcoded value
