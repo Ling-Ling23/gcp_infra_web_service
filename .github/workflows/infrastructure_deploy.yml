@@ -41,7 +41,9 @@ jobs:
         run: |
           cat <<EOF > terraform_deployment/terraform/variables.auto.tfvars
           project_id = "${{ secrets.TF_VAR_PROJECT_ID }}"
-          google_credentials = "${{ secrets.GOOGLE_CREDENTIALS }}"
+          google_credentials = <<CREDENTIALS
+          ${{ secrets.GOOGLE_CREDENTIALS }}
+          CREDENTIALS
           github_owner_lowercase = "ling_ling23"
           mongodb_root_password = "${{ secrets.MONGO_ROOT_PASSWORD }}"
           mongodb_username = "${{ secrets.MONGO_USERNAME }}"
