@@ -30,6 +30,9 @@ jobs:
         run: terraform init
         working-directory: terraform_deployment/terraform
 
+      - name: Debug Environment Variables
+        run: env
+
       # Step 4: Terraform Plan
       - name: Terraform Plan
         run: terraform plan
@@ -42,7 +45,7 @@ jobs:
           TF_VAR_github_token: ${{ secrets.GHCR_PAT_1 }}
           TF_VAR_mongodb_username: ${{ secrets.MONGO_USERNAME }}
           TF_VAR_mongodb_password: ${{ secrets.MONGO_PASSWORD }}
-          TF_VAR_mongodb_database: ${{ secrets.TF_VAR_MONGODB_DATABASE }}
+          TF_VAR_mongodb_database: ${{ secrets.MONGO_DATABASE }}
           TF_VAR_mongodb_root_password: ${{ secrets.MONGO_ROOT_PASSWORD }}
 
       # Step 5: Terraform Apply
