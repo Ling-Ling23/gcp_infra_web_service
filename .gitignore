@@ -6,3 +6,8 @@ terraform_deployment/terraform/.terraform/providers/
 # Terraform state files
 terraform_deployment/terraform/*.tfstate
 terraform_deployment/terraform/*.tfstate.*
+
+# Test _pycache_
+tests/__pycache__/*.pyc
+tests/__pycache__/*
+tests/.pytest_cache/*
