@@ -33,12 +33,14 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -out=tfplan
         env:
+          working-directory: terraform_deployment/terraform
           TF_VAR_project_id: ${{ secrets.TF_VAR_PROJECT_ID }}
           TF_VAR_google_credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
 
       # Step 5: Terraform Apply
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
+        working-directory: terraform_deployment/terraform
         env:
           TF_VAR_project_id: ${{ secrets.TF_VAR_PROJECT_ID }}
           TF_VAR_google_credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
