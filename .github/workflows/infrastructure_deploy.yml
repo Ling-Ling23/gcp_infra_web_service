@@ -33,9 +33,9 @@ jobs:
         run: terraform init
         working-directory: terraform_deployment/terraform
 
-      # Step 4: Debug Environment Variables
-      - name: Debug Environment Variables
-        run: env
+      ## Step 4: Debug Environment Variables
+      #- name: Debug Environment Variables
+      #  run: env
 
       - name: Create Terraform Variables File
         run: |
@@ -83,9 +83,9 @@ jobs:
         working-directory: terraform_deployment/terraform
 
       # Step 6: Terraform Apply
-      #- name: Terraform Apply
-      #  run: terraform apply -auto-approve
-      #  working-directory: terraform_deployment/terraform
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: terraform_deployment/terraform
       #  env:
       #    TF_VAR_project_id: ${{ secrets.TF_VAR_PROJECT_ID }}
       #    TF_VAR_google_credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
