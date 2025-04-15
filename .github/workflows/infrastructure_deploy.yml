@@ -28,12 +28,13 @@ jobs:
       # Step 3: Initialize Terraform
       - name: Terraform Init
         run: terraform init
+        working-directory: terraform_deployment/terraform
 
       # Step 4: Terraform Plan
       - name: Terraform Plan
         run: terraform plan -out=tfplan
+        working-directory: terraform_deployment/terraform
         env:
-          working-directory: terraform_deployment/terraform
           TF_VAR_project_id: ${{ secrets.TF_VAR_PROJECT_ID }}
           TF_VAR_google_credentials: ${{ secrets.GOOGLE_CREDENTIALS }}
 
