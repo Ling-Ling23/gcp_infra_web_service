@@ -49,12 +49,7 @@ jobs:
           github_token = "${{ secrets.GHCR_PAT_1 }}"
           EOF
 
-      # Step 5: Terraform Plan -  -var-file=variables.auto.tfvars
-      - name: Terraform Plan
-        run: terraform plan
-        working-directory: terraform_deployment/terraform
-
-      # Step 6: Terraform Apply
+      # Terraform Destroy
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
         working-directory: terraform_deployment/terraform
