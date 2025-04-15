@@ -1,4 +1,4 @@
-name: Deploy Infrastructure
+name: Deploy Infrastructure (is not used)
 
 on:
   workflow_dispatch: # Manual
