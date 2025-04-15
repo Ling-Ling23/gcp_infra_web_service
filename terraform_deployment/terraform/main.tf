@@ -9,8 +9,8 @@ resource "google_container_cluster" "primary" {
   initial_node_count = 2
 #
   node_config {
-    machine_type = "e2-medium"
-    disk_size_gb = 10
+    machine_type = "n1-standard-2"
+    disk_size_gb = 20
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
     ]
@@ -26,13 +26,20 @@ resource "google_container_node_pool" "primary_nodes" {
   node_count = 2
 
   node_config {
-    machine_type = "e2-medium"
-    disk_size_gb = 10
+    machine_type = "n1-standard-2"
+    disk_size_gb = 20
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
     ]
   }
 }
+
+#terraform {
+#  backend "gcs" {
+#    bucket  = "my-project-aw-test-1-terraform-state-bucket"
+#    prefix  = "terraform/state"
+#  }
+#}
 
 #resource "kubernetes_namespace" "default" {
 #  metadata {

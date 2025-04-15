@@ -8,6 +8,25 @@ resource "kubernetes_config_map" "mongo_init_script" {
   }
 }
 
+#resource "kubernetes_persistent_volume_claim" "mongodb_data" {
+#  metadata {
+#    name      = "mongodb-data"
+#    namespace = "default"
+#  }
+#
+#  spec {
+#    storage_class_name = "standard"
+#    access_modes = ["ReadWriteOnce"]
+#    resources {
+#      requests = {
+#        storage = "8Gi"
+#      }
+#    }
+#  }
+#
+#  depends_on = [google_container_cluster.primary]
+#}
+
 resource "helm_release" "mongodb" {
   name       = "mongodb-data"
   #repository = "https://charts.bitnami.com/bitnami"
@@ -39,4 +58,19 @@ resource "helm_release" "mongodb" {
     name  = "initdbScriptsConfigMap"
     value = kubernetes_config_map.mongo_init_script.metadata[0].name
   }
+
+  set {
+    name  = "persistence.storageClass"
+    value = "standard"
+  }
+
+  set {
+    name  = "persistence.size"
+    value = "8Gi"
+  }
+
+  #depends_on = [
+  #  kubernetes_persistent_volume_claim.mongodb_data,
+  #  kubernetes_config_map.mongo_init_script
+  #]
 }
