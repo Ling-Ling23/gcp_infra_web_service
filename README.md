@@ -25,8 +25,7 @@ Infrastructure as Code (IaC):
 - GCP account
 - Terraform Cloud account
 - Fork of repository
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+
 
 # GCP
 
@@ -38,25 +37,49 @@ Create credentials for the terraform cloud user. Navigate to IAM & Admin/Service
 
     Important Enable APIs for GKE and Cloud Resource Manager Important
 
+Manually create account in google cloud platform
+1. Create a Service Account
+	• Go to the Google Cloud Console.
+	• Navigate to IAM & Admin > Service Accounts.
+	• Click Create Service Account.
+	• Provide a name and description for the service account, then click Create and Continue.
+2. Assign Roles
+	• Assign the necessary role:
+		○ Owner (for full access)
+	• Click Continue and then Done.
+3. Generate a Key
+	• Find the service account you just created in the list.
+	• Click the three dots next to it and select Manage Keys.
+	• Click Add Key > Create New Key.
+	• Choose JSON as the key type and click Create.
+	• A JSON file containing your credentials will be downloaded.
+
+
 # Terraform Cloud
 
-Create new free account
-Navigate to your profile
-Create Terraform API token
+Steps to Use Terraform Cloud as Your Backend
+1. Create a Terraform Cloud Account
+	1. Go to Terraform Cloud and create an account if you don’t already have one.
+	2. Create a new organization in Terraform Cloud.
+
+2. Create a Workspace in Terraform Cloud
+	1. In your Terraform Cloud organization, create a new workspace.
+Choose the CLI-driven workflow (this allows you to run Terraform commands locally while storing the state in Terraform Cloud).![obrazek](https://github.com/user-attachments/assets/cc3f8929-1405-467a-8f9a-9526d22f6837)
 
 
-# Github
+
+# GitHub
 
     Navigate to your profile / Developer settings
     Select Personal access tokens / Tokens (classic)
     Generate new token
     Go back to your forked repo and add following repository secrets and variables
 
-    Enable Github actions in the Forked repo
-    Run Build Image and Deploy Infra
+> [!NOTE]
+> Terraform variables in GitHub actions are loaded from GitHub secrets!
 ![alt text](image.png)
 
-## Configure Terraform Variables
+## Configure Terraform Variables (OPTIONAL, IF YOU DON'T WANT TO BUILD INFRA WITH GH ACTIONS)
 Update the variables.tf file or provide a terraform.tfvars file with the following variables:
 
 project_id: Your GCP project ID.
