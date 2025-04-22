@@ -3,34 +3,28 @@ This repository contains the infrastructure and deployment configuration for a w
 ## Features
 - Infrastructure as Code (IaC):
 - Terraform is used to provision GCP resources, including Kubernetes clusters and static IP addresses.
-Kubernetes Deployment:
-Kubernetes manifests are defined for deploying the gRPC service.
-Includes configurations for deployments, services, secrets, and resource limits.
-GitHub Container Registry (GHCR):
-Docker images are built and pushed to GHCR.
-Kubernetes uses a secret to pull images securely from GHCR.
-Helm Integration:
-Helm is configured for managing Kubernetes resources.
+- Kubernetes Deployment:
+- Kubernetes manifests are defined for deploying the gRPC service.
+- Includes configurations for deployments, services, secrets, and resource limits.
+- GitHub Container Registry (GHCR):
+- Docker images are built and pushed to GHCR.
+- Kubernetes uses a secret to pull images securely from GHCR.
+- Helm Integration: Helm is configured for managing Kubernetes resources.
 
 
 ## Prerequisites
-Google Cloud Platform (GCP):
-A GCP project with billing enabled.
-A service account with the necessary permissions.
-Terraform:
-Install Terraform (v1.10.4 or later).
-Kubernetes:
-A Kubernetes cluster running on GCP (GKE).
-kubectl configured to access the cluster.
-Docker:
-Docker installed for building and pushing images.
-GitHub Personal Access Token (PAT):
-A PAT with read:packages and write:packages permissions for GHCR.
+- Google Cloud Platform (GCP):
+- A GCP project with billing enabled.
+- A service account with the necessary permissions.
+- Terraform: Install Terraform (v1.10.4 or later).
+- Kubernetes: A Kubernetes cluster running on GCP (GKE). kubectl configured to access the cluster.
+- Docker: Docker installed for building and pushing images.
+- GitHub Personal Access Token (PAT): A PAT with read:packages and write:packages permissions for GHCR.
 
 ## Setup Instructions
-    GCP account
-    Terraform Cloud account
-    Fork of repository
+- GCP account
+- Terraform Cloud account
+- Fork of repository
 
 
 # GCP
