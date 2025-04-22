@@ -21,13 +21,13 @@ Infrastructure as Code (IaC):
 - Docker: Docker installed for building and pushing images.
 - GitHub Personal Access Token (PAT): A PAT with read:packages and write:packages permissions for GHCR.
 
-## Setup Instructions
+# Setup Instructions
 - GCP account
 - Terraform Cloud account
 - Fork of repository
 
 
-# GCP
+## GCP
 
 Create new Project
 
@@ -35,25 +35,27 @@ Create credentials for the terraform cloud user. Navigate to IAM & Admin/Service
 
   cat gcp-credential.json | tr -s '\n' ' ' | base64
 
-    Important Enable APIs for GKE and Cloud Resource Manager Important
+
 
 Manually create account in google cloud platform
 1. Create a Service Account
-	• Go to the Google Cloud Console.
-	• Navigate to IAM & Admin > Service Accounts.
-	• Click Create Service Account.
-	• Provide a name and description for the service account, then click Create and Continue.
+	1. Go to the Google Cloud Console.
+	2. Navigate to IAM & Admin > Service Accounts.
+	3. Click Create Service Account.
+	4. Provide a name and description for the service account, then click Create and Continue.
 2. Assign Roles
-	• Assign the necessary role:
-		○ Owner (for full access)
-	• Click Continue and then Done.
+	1. Assign the necessary role: Owner (for full access)
+	2. Click Continue and then Done.
 3. Generate a Key
-	• Find the service account you just created in the list.
-	• Click the three dots next to it and select Manage Keys.
-	• Click Add Key > Create New Key.
-	• Choose JSON as the key type and click Create.
-	• A JSON file containing your credentials will be downloaded.
-
+	1. Find the service account you just created in the list.
+	2. Click the three dots next to it and select Manage Keys.
+	3. Click Add Key > Create New Key.
+	4. Choose JSON as the key type and click Create.
+	5. A JSON file containing your credentials will be downloaded. base64 encode it
+    	at gcp-credential.json | tr -s '\n' ' ' | base64
+ 	> [!IMPORTANT]
+	> Enable APIs for GKE and Cloud Resource Manager
+    
 
 # Terraform Cloud
 
@@ -63,8 +65,7 @@ Steps to Use Terraform Cloud as Your Backend
 	2. Create a new organization in Terraform Cloud.
 
 2. Create a Workspace in Terraform Cloud
-	1. In your Terraform Cloud organization, create a new workspace.
-Choose the CLI-driven workflow (this allows you to run Terraform commands locally while storing the state in Terraform Cloud).![obrazek](https://github.com/user-attachments/assets/cc3f8929-1405-467a-8f9a-9526d22f6837)
+	1. In your Terraform Cloud organization, create a new workspace. Choose the CLI-driven workflow (this allows you to run Terraform commands locally while storing the state in Terraform Cloud).
 
 
 
