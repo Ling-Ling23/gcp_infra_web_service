@@ -18,6 +18,11 @@ resource "kubernetes_secret" "ghcr_secret" {
   type = "kubernetes.io/dockerconfigjson"
 }
 
+#resource "google_compute_address" "my_static_ip" {
+#  name   = "my-static-ip"
+#  region = var.region
+#}
+
 resource "kubernetes_deployment" "service_slim" {
   metadata {
     name      = "service-slim"
