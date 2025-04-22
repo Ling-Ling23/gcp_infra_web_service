@@ -1,8 +1,8 @@
 This repository contains the infrastructure and deployment configuration for a web service application in GCP. It leverages Terraform for infrastructure provisioning, Kubernetes for container orchestration, and Google Cloud Platform (GCP) as the cloud provider. The application is deployed using a combination of Kubernetes resources and Helm charts.
 
 ## Features
-        Infrastructure as Code (IaC):
-    Terraform is used to provision GCP resources, including Kubernetes clusters and static IP addresses.
+- Infrastructure as Code (IaC):
+- Terraform is used to provision GCP resources, including Kubernetes clusters and static IP addresses.
 Kubernetes Deployment:
 Kubernetes manifests are defined for deploying the gRPC service.
 Includes configurations for deployments, services, secrets, and resource limits.
@@ -43,7 +43,7 @@ Create credentials for the terraform cloud user. Navigate to IAM & Admin/Service
 
     Important Enable APIs for GKE and Cloud Resource Manager Important
 
-# Terraform Clound
+# Terraform Cloud
 
     Create new free account
     Navigate to your profile
@@ -71,9 +71,9 @@ github_username: Your GitHub username.
 github_email: Your GitHub email.
 github_token: Your GitHub Personal Access Token.
 MongoDB credentials (mongodb_root_password, mongodb_username, mongodb_password, mongodb_database).
-3. Deploy Infrastructure
+
+## Deploy Infrastructure
 Run the following commands to provision the infrastructure:
 
-cd terraform_deployment/terraform
-terraform init
-terraform apply
+    Enable Github actions in the Forked repo
+    Run Build Image and Deploy Infra
