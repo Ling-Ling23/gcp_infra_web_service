@@ -1,6 +1,6 @@
 This repository contains the infrastructure and deployment configuration for a web service application in GCP. It leverages Terraform for infrastructure provisioning, Kubernetes for container orchestration, and Google Cloud Platform (GCP) as the cloud provider. The application is deployed using a combination of Kubernetes resources and Helm charts.
 
-##Features
+## Features
 Infrastructure as Code (IaC):
 Terraform is used to provision GCP resources, including Kubernetes clusters and static IP addresses.
 Kubernetes Deployment:
