@@ -68,7 +68,6 @@ Steps to Use Terraform Cloud as Your Backend
 	1. In your Terraform Cloud organization, create a new workspace. Choose the CLI-driven workflow (this allows you to run Terraform commands locally while storing the state in Terraform Cloud).
 
 
-
 # GitHub
 
     Navigate to your profile / Developer settings
@@ -80,16 +79,16 @@ Steps to Use Terraform Cloud as Your Backend
 > Terraform variables in GitHub actions are loaded from GitHub secrets!
 ![alt text](image.png)
 
-## Configure Terraform Variables (OPTIONAL, IF YOU DON'T WANT TO BUILD INFRA WITH GH ACTIONS)
+## Configure Terraform Variables (GH Actions will recreate them when deploy via Actions)
 Update the variables.tf file or provide a terraform.tfvars file with the following variables:
 
-project_id: Your GCP project ID.
-region: The GCP region (e.g., us-central1).
-google_credentials: Base64-encoded GCP service account key.
-github_username: Your GitHub username.
-github_email: Your GitHub email.
-github_token: Your GitHub Personal Access Token.
-MongoDB credentials (mongodb_root_password, mongodb_username, mongodb_password, mongodb_database).
+- project_id: Your GCP project ID.
+- region: The GCP region (e.g., us-central1).
+- google_credentials: Base64-encoded GCP service account key.
+- github_username: Your GitHub username.
+- github_email: Your GitHub email.
+- github_token: Your GitHub Personal Access Token.
+- MongoDB credentials (mongodb_root_password, mongodb_username, mongodb_password, mongodb_database).
 
 ## Deploy Infrastructure
 Run the following commands to provision the infrastructure:
