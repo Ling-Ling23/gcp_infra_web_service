@@ -95,3 +95,19 @@ Run the following commands to provision the infrastructure:
 
     Enable Github actions in the Forked repo
     Run Build Image and Deploy Infra
+
+
+
+
+# RESULT
+![obrazek](https://github.com/user-attachments/assets/27026200-c207-4b20-8aa1-16e3ca007cf4)
+
+![obrazek](https://github.com/user-attachments/assets/3732b9db-480b-46c8-8fa0-700a4d3d30d6)
+
+![obrazek](https://github.com/user-attachments/assets/db39fd99-aca6-424c-9fe3-0ab862ca4d8a)
+
+![obrazek](https://github.com/user-attachments/assets/c1a7d098-40fb-4fa1-80ea-144875faf21a)
+
+
+
+
