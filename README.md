@@ -13,7 +13,7 @@ Helm Integration:
 Helm is configured for managing Kubernetes resources.
 
 
-##Prerequisites
+## Prerequisites
 Google Cloud Platform (GCP):
 A GCP project with billing enabled.
 A service account with the necessary permissions.
@@ -27,13 +27,13 @@ Docker installed for building and pushing images.
 GitHub Personal Access Token (PAT):
 A PAT with read:packages and write:packages permissions for GHCR.
 
-##Setup Instructions
+## Setup Instructions
     GCP account
     Terraform Cloud account
     Fork of repository
 
 
-#GCP
+# GCP
 
 Create new Project
 
@@ -43,14 +43,14 @@ Create credentials for the terraform cloud user. Navigate to IAM & Admin/Service
 
     Important Enable APIs for GKE and Cloud Resource Manager Important
 
-#Terraform Clound
+# Terraform Clound
 
     Create new free account
     Navigate to your profile
     Create Terraform API token
 
 
-#Github
+# Github
 
     Navigate to your profile / Developer settings
     Select Personal access tokens / Tokens (classic)
@@ -61,7 +61,7 @@ Create credentials for the terraform cloud user. Navigate to IAM & Admin/Service
     Run Build Image and Deploy Infra
 ![alt text](image.png)
 
-2. Configure Terraform Variables
+## Configure Terraform Variables
 Update the variables.tf file or provide a terraform.tfvars file with the following variables:
 
 project_id: Your GCP project ID.
