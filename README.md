@@ -4,11 +4,11 @@ This repository contains the infrastructure and deployment configuration for a w
 Infrastructure as Code (IaC):
 - Terraform is used to provision GCP resources, including Kubernetes clusters and static IP addresses.
 - Kubernetes Deployment:
-- Kubernetes manifests are defined for deploying the gRPC service.
-- Includes configurations for deployments, services, secrets, and resource limits.
+	- Kubernetes manifests are defined for deploying the gRPC service.
+	- Includes configurations for deployments, services, secrets, and resource limits.
 - GitHub Container Registry (GHCR):
-- Docker images are built and pushed to GHCR.
-- Kubernetes uses a secret to pull images securely from GHCR.
+	- Docker images are built and pushed to GHCR.
+	- Kubernetes uses a secret to pull images securely from GHCR.
 - Helm Integration: Helm is configured for managing Kubernetes resources.
 
 
@@ -91,7 +91,7 @@ Update the variables.tf file or provide a terraform.tfvars file with the followi
 - MongoDB credentials (mongodb_root_password, mongodb_username, mongodb_password, mongodb_database).
 
 ## Deploy Infrastructure
-Run the following commands to provision the infrastructure:
+Run the following in GitHub Actions to provision the infrastructure:
 
     Enable Github actions in the Forked repo
     Run Build Image and Deploy Infra
