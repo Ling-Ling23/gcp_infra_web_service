@@ -14,8 +14,8 @@ Infrastructure as Code (IaC):
 
 ## Prerequisites
 - Google Cloud Platform (GCP):
-- A GCP project with billing enabled.
-- A service account with the necessary permissions.
+	- A GCP project with billing enabled.
+	- A service account with the necessary permissions.
 - Terraform: Install Terraform (v1.10.4 or later).
 - Kubernetes: A Kubernetes cluster running on GCP (GKE). kubectl configured to access the cluster.
 - Docker: Docker installed for building and pushing images.
